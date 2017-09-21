@@ -9,6 +9,8 @@ const VERSION_PATH = 				'application/version'
 const VERSION_MAJOR_DEFAULT =       1
 const VERSION_MINOR_DEFAULT =       0
 const VERSION_PATCH_DEFAULT =       0
+const AUTOLOAD_NAME =               'autoload/version'
+const AUTOLOAD_PATH =               '*res://' + PLUGIN_PATH + '/version.gd'
 
 func _init():
     if !Globals.has(VERSION_PATH):
@@ -21,7 +23,10 @@ func _init():
         Globals.save()
 
 func _enter_tree():
-    pass
+    if !Globals.has(AUTOLOAD_NAME):
+        Globals.set(AUTOLOAD_NAME, AUTOLOAD_PATH)
+        Globals.set_persisting(AUTOLOAD_NAME, true)
+        Globals.save()
 
 func _exit_tree():
-    pass
+    Globals.set(AUTOLOAD_NAME, null)

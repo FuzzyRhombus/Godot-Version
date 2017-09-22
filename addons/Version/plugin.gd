@@ -17,7 +17,7 @@ const Version = preload('version.gd')
 var version
 
 func _init():
-    if !Globals.has(VERSION_PATH):
+    if !Globals.has(VERSION_PATH + '/major'):
         Globals.set(VERSION_PATH + '/major', VERSION_MAJOR_DEFAULT)
         Globals.set(VERSION_PATH + '/minor', VERSION_MINOR_DEFAULT)
         Globals.set(VERSION_PATH + '/patch', VERSION_PATCH_DEFAULT)

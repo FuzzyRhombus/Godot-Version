@@ -32,6 +32,7 @@ func _enter_tree():
         Globals.set_persisting(AUTOLOAD_NAME, true)
         Globals.save()
     add_custom_type('VersionLabel', 'Label', preload('version_label.gd'), preload('versionlabel-icon.png'))
+    add_custom_type('VersionChecker', 'HTTPRequest', preload('version_checker.gd'), preload('versionchecker-icon.png'))
     version = Version.new()
     version.set_name('version')
     get_tree().get_root().add_child(version)
@@ -39,5 +40,6 @@ func _enter_tree():
 func _exit_tree():
     Globals.set(AUTOLOAD_NAME, null)
     remove_custom_type('VersionLabel')
+    remove_custom_type('VersionChecker')
     if version: get_tree().get_root().remove_child(version)
     version = null

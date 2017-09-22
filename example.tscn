@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://addons/Version/version_label.gd" type="Script" id=1]
 [ext_resource path="res://addons/Version/versionlabel-icon.png" type="Texture" id=2]
+[ext_resource path="res://addons/Version/version_checker.gd" type="Script" id=3]
+[ext_resource path="res://addons/Version/versionchecker-icon.png" type="Texture" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,5 +28,21 @@ __meta__ = {
 "_editor_icon": ExtResource( 2 )
 }
 short = false
+
+[node name="VersionChecker" type="HTTPRequest" parent="."]
+
+use_threads = false
+body_size_limit = -1
+max_redirects = 8
+script/script = ExtResource( 3 )
+__meta__ = {
+"_editor_icon": ExtResource( 4 )
+}
+auto_check = true
+free_on_success = true
+retry_time = 500
+max_retry = 10
+ios_app_id = null
+android_bundle_id = null
 
 

@@ -28,6 +28,8 @@ __meta__ = {
 "_editor_icon": ExtResource( 2 )
 }
 short = false
+update_low_color = Color( 1, 0.7, 0, 1 )
+update_high_color = Color( 1, 0, 0, 1 )
 
 [node name="VersionChecker" type="HTTPRequest" parent="."]
 

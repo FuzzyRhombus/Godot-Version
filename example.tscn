@@ -1,5 +1,30 @@
-[gd_scene format=1]
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://addons/Version/version_label.gd" type="Script" id=1]
+[ext_resource path="res://addons/Version/versionlabel-icon.png" type="Texture" id=2]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="VersionLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+focus/stop_touch = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 100.0
+margin/top = 100.0
+margin/right = 252.0
+margin/bottom = 116.0
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 1 )
+__meta__ = {
+"_editor_icon": ExtResource( 2 )
+}
+short = false
 
 

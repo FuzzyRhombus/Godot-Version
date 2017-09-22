@@ -12,6 +12,10 @@ const VERSION_PATCH_DEFAULT =       0
 const AUTOLOAD_NAME =               'autoload/version'
 const AUTOLOAD_PATH =               '*res://' + PLUGIN_PATH + '/version.gd'
 
+const Version = preload('version.gd')
+
+var version
+
 func _init():
     if !Globals.has(VERSION_PATH):
         Globals.set(VERSION_PATH + '/major', VERSION_MAJOR_DEFAULT)
@@ -27,6 +31,13 @@ func _enter_tree():
         Globals.set(AUTOLOAD_NAME, AUTOLOAD_PATH)
         Globals.set_persisting(AUTOLOAD_NAME, true)
         Globals.save()
+    add_custom_type('VersionLabel', 'Label', preload('version_label.gd'), preload('versionlabel-icon.png'))
+    version = Version.new()
+    version.set_name('version')
+    get_tree().get_root().add_child(version)
 
 func _exit_tree():
     Globals.set(AUTOLOAD_NAME, null)
+    remove_custom_type('VersionLabel')
+    if version: get_tree().get_root().remove_child(version)
+    version = null

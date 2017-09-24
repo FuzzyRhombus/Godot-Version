@@ -12,7 +12,7 @@ const IOS_DOWNLOAD_URL =		'itms-apps://itunes.apple.com/app/%s/id%s'
 const ANDROID_DOWNLOAD_URL =	'market://details?id='
 
 onready var timer = Timer.new()
-onready var is_ios = Version.version.os == 'ios' || true
+onready var is_ios = Version.version.os == 'ios'
 onready var is_android = Version.version.os == 'and'
 
 export var auto_check = true

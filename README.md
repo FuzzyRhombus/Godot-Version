@@ -1,4 +1,4 @@
-# Godot Version
+# ![](/icon.png?raw=true) Godot Version
 
 Version management for Godot projects
 
@@ -16,7 +16,7 @@ We wanted a clean and reusable way to maintain a regular version code in our gam
 
 In the simplest form it adds a `version/` parameter to your project settings
 
-![Project Settings screenshot](settings.png)
+![Project Settings screenshot](/settings.png?raw=true)
 
 A `version` object is also globally accessible (automatic `autoload`) to perform runtime queries, which provides a single function `get_version()`, also accessible as `version` property, with all version info:
 
@@ -39,11 +39,11 @@ version_info = {
 
 A few extra node types are included for extra functionality if desired
 
-#### ![](addons/Version/versionlabel-icon 2x.png) `VersionLabel`
+#### ![](/addons/Version/versionlabel-icon-2x.png?raw=true) `VersionLabel`
 
 Exactly what it says. A `Label` extension that will automatically display the current version - either *full version* or *short version*. It will also change color depending on version update checking (see below). These colors are also configurable.
 
-#### ![](addons/Version/versionchecker-icon 2x.png) `VersionChecker`
+#### ![](/addons/Version/versionchecker-icon-2x.png?raw=true) `VersionChecker`
 
 This is a node that can be added to check the latest release version against the current running version... yes, checking for updates.  This is currently only implemented for **iOS** and **Android** and relies on the Apple/Google listing to query the latest published version. It is intended to notify the user if an update is found and remind them to stay up to date.
 

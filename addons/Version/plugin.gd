@@ -12,7 +12,7 @@ const VERSION_PATH = 				'application/version'
 const VERSION_MAJOR_DEFAULT =       1
 const VERSION_MINOR_DEFAULT =       0
 const VERSION_PATCH_DEFAULT =       0
-const AUTOLOAD_NAME =               'autoload/version'
+const AUTOLOAD_NAME =               'autoload/Version'
 const AUTOLOAD_PATH =               '*res://' + PLUGIN_PATH + '/version.gd'
 
 const Version = preload('version.gd')
@@ -37,7 +37,7 @@ func _enter_tree():
     add_custom_type('VersionLabel', 'Label', preload('version_label.gd'), preload('versionlabel-icon.png'))
     add_custom_type('VersionChecker', 'HTTPRequest', preload('version_checker.gd'), preload('versionchecker-icon.png'))
     version = Version.new()
-    version.set_name('version')
+    version.set_name('Version')
     get_tree().get_root().add_child(version)
 
 func _exit_tree():

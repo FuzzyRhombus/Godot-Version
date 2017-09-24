@@ -12,8 +12,8 @@ const IOS_DOWNLOAD_URL =		'itms-apps://itunes.apple.com/app/%s/id%s'
 const ANDROID_DOWNLOAD_URL =	'market://details?id='
 
 onready var timer = Timer.new()
-onready var is_ios = version.version.os == 'ios' || true
-onready var is_android = version.version.os == 'and'
+onready var is_ios = Version.version.os == 'ios' || true
+onready var is_android = Version.version.os == 'and'
 
 export var auto_check = true
 export var free_on_success = true
@@ -71,7 +71,7 @@ func _ready():
 	add_child(timer)
 	connect('request_completed', self, '_on_request_completed')
 	timer.connect('timeout', self, '_on_timer_timeout')
-	version.connect('version_update', self, '_on_version_update', [], CONNECT_ONESHOT)
+	Version.connect('version_update', self, '_on_version_update', [], CONNECT_ONESHOT)
 	if auto_check: check_update()
 
 func _on_request_completed( result, response_code, headers, body ):
@@ -79,7 +79,7 @@ func _on_request_completed( result, response_code, headers, body ):
 	var data = body.get_string_from_utf8()
 	var latest = parse_app_store_version(data) if is_ios else parse_play_store_version(data)
 	if !latest: return fail(result, response_code, true)
-	version.compare_latest(latest)
+	Version.compare_latest(latest)
 	if free_on_success: queue_free()
 
 func _on_timer_timeout():

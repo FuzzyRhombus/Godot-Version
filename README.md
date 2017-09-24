@@ -66,6 +66,9 @@ Don't forget to add the **Internet** permission for Android builds or the `Versi
 
 1. Version changes will not reflect on any `VersionLabel` **in the editor** until the project is reopened
 
+2. In order for the `VersionChecker` to work for a given platform a published version must already exist. This means for the first version, requests will always fail in development - and the `error` signal will be emitted. It **WILL** work once published, though the first version should be up to date and nothing will happen - with no errors.
+> For testing purposes, you can use any valid App ID or Bundle ID and play with the version number - just find a published app, such as one you have already published, and use that ID in the `VersionChecker`. Make sure you change these to the correct ID's before release.
+
 ----
 
 Copyright © 2017 Ryan Mastrolia

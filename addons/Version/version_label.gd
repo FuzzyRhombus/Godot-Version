@@ -1,3 +1,6 @@
+# Copyright © 2017 Ryan Mastrolia
+# MIT License
+#
 # plugin: Version
 # version_label.gd
 

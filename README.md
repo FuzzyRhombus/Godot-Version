@@ -69,3 +69,5 @@ Don't forget to add the **Internet** permission for Android builds or the `Versi
 ----
 
 Copyright © 2017 Ryan Mastrolia
+
+Licensed under The MIT License (MIT)
